@@ -1,0 +1,47 @@
+﻿   <?xml version="1.0" encoding="utf-8"?>
+   <data>
+   	<channel>
+   		<item>
+   			<link>http://www.slicemaker.com</link>
+   			<image>images/example/banner-1.jpg</image>
+   			<title>You can Add Your Own Title Here - SliceMaker Soft</title>
+   		</item>
+   		<item>
+   			<link>http://www.slicemaker.com</link>
+   			<image>images/example/banner-2.jpg</image>
+   			<title>You can Add Your Own Title Here - SliceMaker Soft</title>
+   		</item>
+   		<item>
+   			<link>http://www.slicemaker.com</link>
+   			<image>images/example/banner-3.jpg</image>
+   			<title>You can Add Your Own Title Here - SliceMaker Soft</title>
+   		</item>
+   		
+   	</channel>
+   	<config>	
+   		<roundCorner>0</roundCorner>
+   		<autoPlayTime>8</autoPlayTime>
+   		<isHeightQuality>false</isHeightQuality>
+   		<blendMode>normal</blendMode>
+   		<transDuration>1</transDuration>
+   		<windowOpen>_self</windowOpen>
+   		<btnSetMargin>auto 5 5 auto</btnSetMargin>
+   		<btnDistance>20</btnDistance>
+   		<titleBgColor>0x1c1c1e</titleBgColor>
+   		<titleTextColor>0xffffff</titleTextColor>
+   		<titleBgAlpha>.75</titleBgAlpha>
+   		<titleMoveDuration>1</titleMoveDuration>
+   		<btnAlpha>.7</btnAlpha>	
+   		<btnTextColor>0xffffff</btnTextColor>	
+   		<btnDefaultColor>0xffffff</btnDefaultColor>
+   		<btnHoverColor>0xff9900</btnHoverColor>
+   		<btnFocusColor>0xff6600</btnFocusColor>
+   		<changImageMode>click</changImageMode>
+   		<isShowBtn>true</isShowBtn>
+   		<isShowTitle>true</isShowTitle>
+   		<scaleMode>noBorder</scaleMode>
+   		<transform>blur</transform>
+   		<isShowAbout>true</isShowAbout>
+   		<titleFont>Arial</titleFont>
+   	</config>
+   </data>
