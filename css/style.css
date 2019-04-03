@@ -31,7 +31,8 @@ p {
 .btn-primary:hover, 
 .btn-primary:focus{
   background: #fff;
-  color:#F77CAD;
+  /*color:#F77CAD;*/
+  color:#F9B153;	
   outline: none;
   box-shadow: none;
 } 
@@ -44,7 +45,8 @@ p {
 }
 
 .site-logo a.brand {
-	color: #F77CAD;	
+	/*color: #F77CAD;*/
+	color:#F9B153;
 	font-size: 30px;
 	font-family: 'Roboto', sans-serif;
 	font-weight: 900;
@@ -153,7 +155,8 @@ p {
 }
 
 #carousel-slider a i {
-  border: 1px solid #F77CAD;;
+  /*border: 1px solid #F77CAD;;*/
+  border: 1px solid #F9B153;	
   border-radius:50%;
   font-size: 30px;
   height: 50px;
@@ -162,7 +165,8 @@ p {
   top: 50%;
   width: 50px;
   color:#fff;
-   background:#F77CAD;
+   /*background:#F77CAD;*/
+   background:#F9B153;
 }
 
 #carousel-slider a i:hover {
@@ -241,8 +245,10 @@ p {
 .portfolio-filter > li a:hover,
 .portfolio-filter > li a.active{
   color:#fff;
-  background: #F77CAD ;
-  border: 1px solid #F77CAD ;
+  /*background: #F77CAD ;*/
+  background: #F9B153 ;	
+  /*border: 1px solid #F77CAD ;*/
+  border: 1px solid #F9B153 ;	
   box-shadow: none;
   -webkit-box-shadow: none;
 }
@@ -450,17 +456,20 @@ a.accordion-toggle  i{
   margin-top: -10px;
   text-align: center;
   margin-right: -15px;
-  background: #F77CAD;
+  /*background: #F77CAD;*/
+  background: #F9B153;	
   color:#fff;
 }
 
 .panel-heading.active a.accordion-toggle i{
-  background: #F77CAD;
+  /*background: #F77CAD;*/
+  background: #F9B153;	
   color: #fff;
 }
 
 .panel-heading.active a.accordion-toggle.collapsed i{
-  background: #F77CAD;
+  /*background: #F77CAD;*/
+  background: #F9B153;	
   color: #fff;
 }
 
@@ -506,7 +515,8 @@ a.accordion-toggle  i{
 
 .contact-page{
   padding-top: 80px;
-  background:#F77CAD;
+  /*background:#F77CAD;*/
+  background: #F9B153;	
   margin-top:-10px;
 }
 
