@@ -29,7 +29,7 @@
 			<div class="row">
 				<div class="col-md-2">
 					<div class="site-logo">
-						<a href="index.html" class="brand">OnePage</a>
+						<a href="index.html" class="brand">Win Practical</a>
 					</div>
 				</div>					  
 
