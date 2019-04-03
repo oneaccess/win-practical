@@ -1,2 +1,0 @@
-# win-practical
-Win Practical
