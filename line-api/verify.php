@@ -35,4 +35,8 @@ function getLINEProfile($datas)
    }
    return $datasReturn;
 }
+$LINEDatas['url'] = "https://api.line.me/v2/bot/profile/".$userId;
+$LINEDatas['token'] = $access_token;
+$results = getLINEProfile($LINEDatas);
+print_r($results);
 ?>
