@@ -1,11 +1,10 @@
 <?PHP
 
 return [
-    'channelId' => '1485920325',
-    'channelSecret' => '81c7144d878de9dc9c041142c1d243af',
+    'channelId' => '1502306338',
+    'channelSecret' => '800277791d946cc4e2847fbe2b48578e',
     'channelMid' => 'ucf3a817b00c639d97ec3ace02f68fc6b',
     'targetMid' => ['ufce3d04785caf9f48fc79dd3e0256200'],
-    'accessToken' => 'bjMobsS6ndui8SI7L3yfrJTH/J70rI8N/UdD2xX6vKOJQgbooymVfPIiDMOer8HbfO4rhEtXypseVhC9nY4HoRIUnZQ3j0CGVFwLc8Pq/a4lddesAE/PjK06ihIXeq+rw/gWf+5jD/Lf8ToVJPvNuwdB04t89/1O/w1cDnyilFU=',
-];
+    'accessToken' => 'vJkaEx7B0tYK6EtRxhYjBk70iDtSq5VYVT6+orl5AuqX82iChMQQUMyywaE2V5CNuY5dCRXrozUlssJQTWxxqpwj9lfXuF/IHWtttqi+HTQoiCj6tgc5Ijk+85l/Qdq2/z4llNHwMBh+11zXzJ1LAwdB04t89/1O/w1cDnyilFU=';
 
 ?>
