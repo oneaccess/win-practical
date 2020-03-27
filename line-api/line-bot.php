@@ -5,7 +5,7 @@
 	$deCode = json_decode($datas,true);
 
 	file_put_contents('log.txt', file_get_contents('php://input') . PHP_EOL, FILE_APPEND);
-        $text_filter = $deCode['events'][0]['text'];
+        $text_filter = $deCode['events'][1]['text'];
         if ($text_filter == 'test') {
 		$text_res = 'OK';
 	} else {
