@@ -5,13 +5,18 @@
 	$deCode = json_decode($datas,true);
 
 	file_put_contents('log.txt', file_get_contents('php://input') . PHP_EOL, FILE_APPEND);
-
+        $text_filter = $deCode['events'][0]['text'];
+        if ($text_filter == 'test') {
+		$text_res = 'OK';
+	} else {
+		$text_res = 'Not Authorize';
+	}
 	$replyToken = $deCode['events'][0]['replyToken'];
 
 	$messages = [];
 	$messages['replyToken'] = $replyToken;
 	//$messages['messages'][0] = getFormatTextMessage("เอ้ย ถามอะไรก็ตอบได้");
-        $messages['messages'][0] = getFormatTextMessage($datas);
+        $messages['messages'][0] = getFormatTextMessage($text_res);
 	$encodeJson = json_encode($messages);
 
 	$LINEDatas['url'] = "https://api.line.me/v2/bot/message/reply";
