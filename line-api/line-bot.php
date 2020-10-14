@@ -76,17 +76,4 @@
 
 		return $datasReturn;
 	}
-	$actions = array (
-  	// general message action
-  	New \LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder("button 1", "text 1"),
-  	// URL type action
-  	New \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder("Google", "http://www.google.com"),
-  	// The following two are interactive actions
-  	New \LINE\LINEBot\TemplateActionBuilder\PostbackTemplateActionBuilder("next page", "page=3"),
-  	New \LINE\LINEBot\TemplateActionBuilder\PostbackTemplateActionBuilder("Previous page", "page=1")
-	);
-	$img_url = "https://cdn.shopify.com/s/files/1/0379/7669/products/sampleset2_1024x1024.JPG?v=1458740363";
-	$button = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\ButtonTemplateBuilder("button text", "description", $img_url, $actions);
-	$outputText = new \LINE\LINEBot\MessageBuilder\TemplateMessageBuilder("Button template builder", $button);
-	$response = $bot->replyMessage($event->getReplyToken(), $outputText);
 ?>
