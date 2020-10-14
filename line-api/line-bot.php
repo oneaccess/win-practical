@@ -76,4 +76,13 @@
 
 		return $datasReturn;
 	}
+$actions = array(
+  //action
+  new \LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder("test1","test2"),
+  //action
+  new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder("Google","http://www.google.com"),
+  //action
+  new \LINE\LINEBot\TemplateActionBuilder\PostbackTemplateActionBuilder("test3", "page=3"),
+  new \LINE\LINEBot\TemplateActionBuilder\PostbackTemplateActionBuilder("test4", "page=1")
+);
 ?>
