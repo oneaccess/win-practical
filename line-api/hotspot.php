@@ -36,7 +36,7 @@ if (!is_null($events['events'])) {
 				} else if (preg_match('/^REGISTER\:.+/', $text)) {
 				$info = 	explode(":",$text);
 				$verify_id = $info[1];
-				$objConnect = mysqli_connect("10.10.19.138","webbom","bombom") or die(mysql_error());
+				/*$objConnect = mysqli_connect("10.10.19.138","webbom","bombom") or die(mysql_error());
 				mysqli_set_charset($objConnect, "utf8");
 				mysqli_select_db($objConnect,"svgarena");		
 				$strSQL = "SELECT member_id FROM otp_expiry WHERE votp = '$verify_id'";
@@ -57,11 +57,11 @@ if (!is_null($events['events'])) {
 					sleep(1);
 					register_form($event['source']['userId'],$res_info,$member_id,$line_id);
 				    mysqli_close($objConnect); 	
-				} else {			
+				} else {*/			
 					$msg = 'ไม่พบข้อมูลรหัสสมาชิกของท่าน';
 					sleep(1);
 					reply_msg($replyToken,$msg);	
-				}
+				//}
 				exit();			
 		    	} else {
 				$msg = "ท่านกรอกข้อมูลไม่ถูกต้อง โปรดตรวจสอบความถูกต้อง หรือ พิม 'HELP'เพื่อดูวิธีการใช้งาน".$verify_id;
@@ -75,7 +75,7 @@ if (!is_null($events['events'])) {
 				$mid = $event['source']['userId'];
 				$info = 	explode(":",$text);
 				$member_id = $info[1];					
-				$objConnect = mysqli_connect("10.10.19.138","webbom","bombom") or die(mysql_error());
+				/*$objConnect = mysqli_connect("10.10.19.138","webbom","bombom") or die(mysql_error());
 				mysqli_set_charset($objConnect, "utf8");
 				mysqli_select_db($objConnect,"svgarena");		
 				$strSQL = "UPDATE users SET mid = '$mid' WHERE member_id = '$member_id'";
@@ -89,11 +89,11 @@ if (!is_null($events['events'])) {
 				mysqli_close($objConnect);
 				sleep(1);	
 				reply_msg($replyToken,$msg);
-			} else {
+			} else {*/
 				$msg = 'การลงทะเบียนของท่านถูกยกเลิกแล้ว ขอบคุณที่ใช้บริการ';
 				sleep(1);
 				reply_msg($replyToken,$msg);
-			}						
+			//}						
 		}								
 	}		
 }
@@ -135,7 +135,7 @@ function  register_form($mid,$msg,$member_id,$line_id){
 }
 
 function  register($mid,$line_id,$member_id){	
-	$objConnect = mysqli_connect("10.10.19.138","webbom","bombom") or die(mysql_error());
+	/*$objConnect = mysqli_connect("10.10.19.138","webbom","bombom") or die(mysql_error());
     	mysqli_select_db($objConnect,"issue_nw");		
 	$strSQL = "UPDATE member SET mid = '$mid',line_id = '$line_id' WHERE member_id = '$member_id'";
     	$objQuery = mysqli_query($objConnect,$strSQL) or die (mysql_error());
@@ -146,7 +146,7 @@ function  register($mid,$line_id,$member_id){
 		while($obResult = mysqli_fetch_array($objQuery,MYSQLI_ASSOC)) {
 		
 		}
-	}
+	}*/
 }
 
 function  check_info($mid){
@@ -157,7 +157,7 @@ function  check_info($mid){
 	$channelMid = $setting['channelMid'];
 	$accessToken = $setting['accessToken'];
 
-	$objConnect = mysqli_connect("10.10.19.138","webbom","bombom") or die(mysql_error());
+	/*$objConnect = mysqli_connect("10.10.19.138","webbom","bombom") or die(mysql_error());
 	mysqli_set_charset($objConnect, "utf8");
 	mysqli_select_db($objConnect,"svgarena");		
 	$strSQL = "SELECT member_id FROM users WHERE mid = '$mid'";
@@ -181,13 +181,13 @@ function  check_info($mid){
 			$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($msg);
 			$response = $bot->pushMessage($mid, $textMessageBuilder);
 		}
-	} else {	
+	} else {*/	
 		$msg = "ท่านยังไม่ได้ทำการลงทะเบียนการใช้งานโปรดทำการลงทะเบียนโดยการพิม REGISTER:<รหัสพนักงานตัวพิมใหญ่>:<Line ID>";
 		$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($accessToken);
 		$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 		$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($msg);
 		$response = $bot->pushMessage($mid, $textMessageBuilder);
-	}
+	//}
 
 	mysqli_close($objConnect);
 	return $msg;
