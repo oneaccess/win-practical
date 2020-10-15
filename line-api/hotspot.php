@@ -2,9 +2,9 @@
 
 use LINE\LINEBot;
 use LINE\LINEBot\HTTPClient\CurlHTTPClient;
-use LINE\LINEBot\HTTPClient\GuzzleHTTPClient;
-use LINE\LINEBot\Message\MultipleMessages;
-use LINE\LINEBot\Message\RichMessage\Markup;
+//use LINE\LINEBot\HTTPClient\GuzzleHTTPClient;
+//use LINE\LINEBot\Message\MultipleMessages;
+//use LINE\LINEBot\Message\RichMessage\Markup;
 
 require_once 'vendor/autoload.php';
 
