@@ -42,62 +42,6 @@ if (!is_null($events['events'])) {
 			} else if ($text == 'CHECK') {
 				$msg = check_info($event['source']['userId']);	
 				exit();
-			} else if (preg_match('/^REGISTER\:[A-Z0-9\-]{4,8}\:.+/', $text)) {
-				$info = explode(":",$text);
-				$member_id = $info[1];
-				$line_id = $info[2];
-				//$objConnect = mysqli_connect("10.10.19.138","webbom","bombom") or die(mysql_error());
-				//mysqli_set_charset($objConnect, "utf8");
-				//mysqli_select_db($objConnect,"project");		
-				//$strSQL = "SELECT member_id,th_name,th_surname FROM member WHERE member_id = '$member_id'";
-				//$objQuery = mysqli_query($objConnect,$strSQL) or die (mysql_error());
-				//$no = mysqli_num_rows($objQuery);				
-				//if ($no > 0) {					
-				//	while($obResult = mysqli_fetch_array($objQuery,MYSQLI_ASSOC)) {
-				//		if (isset($obResult['member_id'])) {
-				//			$res_info = $obResult["member_id"]." ".$obResult["th_name"]." ".$obResult["th_surname"];
-				//		}
-				//	}
-					$res_info = "1111111 dfdfdfdsf sdfdsfdsfdsf";
-					sleep(1);						
-					register_form($event['source']['userId'],$res_info,$member_id,$line_id);
-				//   mysqli_close($objConnect); 	
-				} else {			
-					$msg = 'ไม่พบข้อมูลรหัสสมาชิกของท่าน';
-					sleep(1);
-					reply_msg($replyToken,$msg);	
-				}
-				exit();			
-		    	} else {
-				$msg = "ท่านกรอกข้อมูลไม่ถูกต้อง โปรดตรวจสอบความถูกต้อง หรือ พิม 'HELP'เพื่อดูวิธีการใช้งาน";
-			}
-			sleep(1);
-			reply_msg($replyToken,$msg);	
-		} else if ($event['type'] == 'postback') {
-			$text = $event['postback']['data'];
-			$replyToken = $event['replyToken'];
-			if (preg_match('/^#123confirm\:[A-Z0-9\-]{4,8}.\:+/', $text)) {
-				$mid = $event['source']['userId'];
-				$info = 	explode(":",$text);
-				$member_id = $info[1];
-				$line_id = $info[2];	
-				//$objConnect = mysqli_connect("10.10.19.138","webbom","bombom") or die(mysql_error());
-				//mysqli_set_charset($objConnect, "utf8");
-				//mysqli_select_db($objConnect,"project");		
-				//$strSQL = "UPDATE member SET mid = '$mid', line_id = '$line_id' WHERE member_id = '$member_id'";
-				//$objQuery = mysqli_query($objConnect,$strSQL) or die (mysql_error());
-				//$no = mysqli_num_rows($objQuery);					
-				//if ($no > 0) {
-				//	$msg = 'Line ID ของท่านลงทะเบียนกับรหัสสมาชิก'.' '.$member_id.' '.'สามารถใช้งานได้แล้ว';					
-				//} else {//if (isset($chk_res_info){
-					$msg = 'รหัสสมาชิกของท่านมีการลงทะเบียนใช้งานอยู่ในระบบแล้ว';
-				//} 
-				//mysqli_close($objConnect);
-				sleep(1);	
-				reply_msg($replyToken,$msg);
-			} else {
-				$msg = 'การลงทะเบียนของท่านถูกยกเลิกแล้ว ขอบคุณที่ใช้บริการ';
-				sleep(1);
 				reply_msg($replyToken,$msg);
 			}						
 		}								
