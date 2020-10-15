@@ -1,6 +1,4 @@
 <?php
-global $events;
-set_exception_handler('exception_handler');
 include 'vendor/autoload.php';
 include 'settings2.php';
 //$setting = require('settings2.php');
@@ -67,33 +65,4 @@ if (!is_null($events['events'])) {
 	}
 }
 echo "OK";
-
-function exception_handler($exception) {
-	global $events;
-	$access_token = 'vJkaEx7B0tYK6EtRxhYjBk70iDtSq5VYVT6+orl5AuqX82iChMQQUMyywaE2V5CNuY5dCRXrozUlssJQTWxxqpwj9lfXuF/IHWtttqi+HTQoiCj6tgc5Ijk+85l/Qdq2/z4llNHwMBh+11zXzJ1LAwdB04t89/1O/w1cDnyilFU=';
-$replyToken = $event['replyToken'];
-  $msg = "Uncaught exception: " , $exception->getMessage(), "\n";
-$url = 'https://api.line.me/v2/bot/message/reply';
-	$messages = [
-				'type' => 'text',
-				'text' => $msg,	//$text
-			];
-			$data = [
-				'replyToken' => $replyToken,
-				'messages' => [$messages],
-			];
-			$post = json_encode($data);
-			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
-                        $ch = curl_init($url);
-			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-			curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
-			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-			curl_setopt($ch, CURLOPT_PROXY, $proxy);
-			curl_setopt($ch, CURLOPT_PROXYUSERPWD, $proxyauth);
-			$result = curl_exec($ch);
-			curl_close($ch);
-	
-}
 ?>
