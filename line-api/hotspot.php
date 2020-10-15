@@ -57,7 +57,8 @@ if (!is_null($events['events'])) {
 				//		if (isset($obResult['member_id'])) {
 				//			$res_info = $obResult["member_id"]." ".$obResult["th_name"]." ".$obResult["th_surname"];
 				//		}
-				//	} 
+				//	}
+					$res_info = "1111111 dfdfdfdsf sdfdsfdsfdsf";
 					sleep(1);						
 					register_form($event['source']['userId'],$res_info,$member_id,$line_id);
 				//   mysqli_close($objConnect); 	
