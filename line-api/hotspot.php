@@ -1,7 +1,7 @@
 <?php
 
 require_once 'vendor/autoload.php';
-require_once 'settings2.php';
+require_once 'settings3.php';
 //$setting = require('settings2.php');
 //$channelId = $setting['LINE_MESSAGE_CHANNEL_ID'];
 //$channelSecret = $setting['LINE_MESSAGE_CHANNEL_SECRET'];
