@@ -1,7 +1,7 @@
 <?php
 
 include 'vendor/autoload.php';
-require_once 'settings3.php';
+include 'settings2.php';
 //$setting = require('settings2.php');
 //$channelId = $setting['LINE_MESSAGE_CHANNEL_ID'];
 //$channelSecret = $setting['LINE_MESSAGE_CHANNEL_SECRET'];
@@ -38,7 +38,7 @@ if (!is_null($events['events'])) {
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
-				'text' => $msg,	//$text
+				'text' => $msg.class_exists('LINE\LINEBot'),	//$text
 			];
 
 			// Make a POST Request to Messaging API to reply to sender
