@@ -1,6 +1,6 @@
 <?php
 
-require_once 'vendor/autoload.php';
+include 'vendor/autoload.php';
 require_once 'settings3.php';
 //$setting = require('settings2.php');
 //$channelId = $setting['LINE_MESSAGE_CHANNEL_ID'];
