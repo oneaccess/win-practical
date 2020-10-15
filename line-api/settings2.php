@@ -1,5 +1,5 @@
 <?php
-return [
+$setting = [
     'channelId' => '1502306338',
     'channelSecret' => '800277791d946cc4e2847fbe2b48578e',
     'channelMid' => 'u44910ea32c9d6a1457be25b056c01142',
