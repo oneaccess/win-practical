@@ -8,7 +8,7 @@ use LINE\LINEBot\Message\MultipleMessages;
 use LINE\LINEBot\Message\RichMessage\Markup;
 
 require_once 'vendor/autoload.php';
-
+$mid = 'Uf34420370c875a3540bd79f148c915c2';
 $setting = require('settings2.php');
 $channelId = $setting['channelId'];
 $channelSecret = $setting['channelSecret'];
