@@ -38,7 +38,7 @@ if (!is_null($events['events'])) {
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
-				'text' => $msg.print_r(class_exists('DomNode'),true),	//$text
+				'text' => $msg.print_r(class_exists('LINE\LINEBot'),true),	//$text
 			];
 
 			// Make a POST Request to Messaging API to reply to sender
