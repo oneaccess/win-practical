@@ -46,21 +46,21 @@ if (!is_null($events['events'])) {
 				$info = explode(":",$text);
 				$member_id = $info[1];
 				$line_id = $info[2];
-				$objConnect = mysqli_connect("10.10.19.138","webbom","bombom") or die(mysql_error());
-				mysqli_set_charset($objConnect, "utf8");
-				mysqli_select_db($objConnect,"project");		
-				$strSQL = "SELECT member_id,th_name,th_surname FROM member WHERE member_id = '$member_id'";
-				$objQuery = mysqli_query($objConnect,$strSQL) or die (mysql_error());
-				$no = mysqli_num_rows($objQuery);				
-				if ($no > 0) {					
-					while($obResult = mysqli_fetch_array($objQuery,MYSQLI_ASSOC)) {
-						if (isset($obResult['member_id'])) {
-							$res_info = $obResult["member_id"]." ".$obResult["th_name"]." ".$obResult["th_surname"];
-						}
-					} 
+				//$objConnect = mysqli_connect("10.10.19.138","webbom","bombom") or die(mysql_error());
+				//mysqli_set_charset($objConnect, "utf8");
+				//mysqli_select_db($objConnect,"project");		
+				//$strSQL = "SELECT member_id,th_name,th_surname FROM member WHERE member_id = '$member_id'";
+				//$objQuery = mysqli_query($objConnect,$strSQL) or die (mysql_error());
+				//$no = mysqli_num_rows($objQuery);				
+				//if ($no > 0) {					
+				//	while($obResult = mysqli_fetch_array($objQuery,MYSQLI_ASSOC)) {
+				//		if (isset($obResult['member_id'])) {
+				//			$res_info = $obResult["member_id"]." ".$obResult["th_name"]." ".$obResult["th_surname"];
+				//		}
+				//	} 
 					sleep(1);						
 					register_form($event['source']['userId'],$res_info,$member_id,$line_id);
-				    mysqli_close($objConnect); 	
+				//   mysqli_close($objConnect); 	
 				} else {			
 					$msg = 'ไม่พบข้อมูลรหัสสมาชิกของท่าน';
 					sleep(1);
@@ -80,18 +80,18 @@ if (!is_null($events['events'])) {
 				$info = 	explode(":",$text);
 				$member_id = $info[1];
 				$line_id = $info[2];	
-				$objConnect = mysqli_connect("10.10.19.138","webbom","bombom") or die(mysql_error());
-				mysqli_set_charset($objConnect, "utf8");
-				mysqli_select_db($objConnect,"project");		
-				$strSQL = "UPDATE member SET mid = '$mid', line_id = '$line_id' WHERE member_id = '$member_id'";
-				$objQuery = mysqli_query($objConnect,$strSQL) or die (mysql_error());
-				$no = mysqli_num_rows($objQuery);					
-				if ($no > 0) {
-					$msg = 'Line ID ของท่านลงทะเบียนกับรหัสสมาชิก'.' '.$member_id.' '.'สามารถใช้งานได้แล้ว';					
-				} else {//if (isset($chk_res_info){
+				//$objConnect = mysqli_connect("10.10.19.138","webbom","bombom") or die(mysql_error());
+				//mysqli_set_charset($objConnect, "utf8");
+				//mysqli_select_db($objConnect,"project");		
+				//$strSQL = "UPDATE member SET mid = '$mid', line_id = '$line_id' WHERE member_id = '$member_id'";
+				//$objQuery = mysqli_query($objConnect,$strSQL) or die (mysql_error());
+				//$no = mysqli_num_rows($objQuery);					
+				//if ($no > 0) {
+				//	$msg = 'Line ID ของท่านลงทะเบียนกับรหัสสมาชิก'.' '.$member_id.' '.'สามารถใช้งานได้แล้ว';					
+				//} else {//if (isset($chk_res_info){
 					$msg = 'รหัสสมาชิกของท่านมีการลงทะเบียนใช้งานอยู่ในระบบแล้ว';
-				} 
-				mysqli_close($objConnect);
+				//} 
+				//mysqli_close($objConnect);
 				sleep(1);	
 				reply_msg($replyToken,$msg);
 			} else {
@@ -104,7 +104,7 @@ if (!is_null($events['events'])) {
 }
 
 function  reply_msg($replyToken,$msg){
-        $setting = require('/var/www/html/bom/line/settings.php');
+        $setting = require('settings2.php');
         $channelId = $setting['channelId'];
         $channelSecret = $setting['channelSecret'];
         $channelMid = $setting['channelMid'];
@@ -118,7 +118,7 @@ function  reply_msg($replyToken,$msg){
 }
 
 function  register_form($mid,$msg,$member_id,$line_id){
-        $setting = require('/var/www/html/bom/line/settings.php');
+        $setting = require('settings2.php');
         $channelId = $setting['channelId'];
         $channelSecret = $setting['channelSecret'];
         $channelMid = $setting['channelMid'];
@@ -137,61 +137,61 @@ function  register_form($mid,$msg,$member_id,$line_id){
 }
 
 function  register($mid,$line_id,$member_id){
-        $objConnect = mysqli_connect("10.10.19.138","webbom","bombom") or die(mysql_error());
-        mysqli_select_db($objConnect,"issue_nw");
-        $strSQL = "UPDATE member SET mid = '$mid',line_id = '$line_id' WHERE member_id = '$member_id'";
-        $objQuery = mysqli_query($objConnect,$strSQL) or die (mysql_error());
-        $no = mysqli_num_rows($objQuery);
-        if ($no > 0) {
-                $strSQL = "";
-                $objQuery = mysqli_query($objConnect,$strSQL) or die (mysql_error());
-                while($obResult = mysqli_fetch_array($objQuery,MYSQLI_ASSOC)) {
+        //$objConnect = mysqli_connect("10.10.19.138","webbom","bombom") or die(mysql_error());
+        //mysqli_select_db($objConnect,"issue_nw");
+        //$strSQL = "UPDATE member SET mid = '$mid',line_id = '$line_id' WHERE member_id = '$member_id'";
+        //$objQuery = mysqli_query($objConnect,$strSQL) or die (mysql_error());
+        //$no = mysqli_num_rows($objQuery);
+        //if ($no > 0) {
+        //        $strSQL = "";
+        //        $objQuery = mysqli_query($objConnect,$strSQL) or die (mysql_error());
+         //       while($obResult = mysqli_fetch_array($objQuery,MYSQLI_ASSOC)) {
 
-                }
-        }
+         //       }
+        //}
 }
 
 function  check_info($mid){
         $msg = 'ERROR';
-        $setting = require('/var/www/html/bom/line/settings.php');
+        $setting = require('settings2.php');
         $channelId = $setting['channelId'];
         $channelSecret = $setting['channelSecret'];
         $channelMid = $setting['channelMid'];
         $accessToken = $setting['accessToken'];
 
-        $objConnect = mysqli_connect("10.10.19.138","webbom","bombom") or die(mysql_error());
-        mysqli_set_charset($objConnect, "utf8");
-        mysqli_select_db($objConnect,"svgarena");
-        $strSQL = "SELECT member_id FROM users WHERE mid = '$mid'";
-        $objQuery = mysqli_query($objConnect,$strSQL) or die (mysql_error());
-        $no = mysqli_num_rows($objQuery);
-        if ($no > 0) {
-                while($obResult = mysqli_fetch_array($objQuery,MYSQLI_ASSOC)) {
-                        $member_id = $obResult['member_id'];
-			$res_msg = 'IDของท่านได้ทำการลงทะเบียนใช้งานแล้ว';
-			$strSQL2 = "SELECT member_id,firstname,lastname FROM users WHERE member_id = '$member_id'";
-                        $objQuery2 = mysqli_query($objConnect,$strSQL2) or die (mysql_error());
-                        $no2 = mysqli_num_rows($objQuery2);
-                        while($obResult2 = mysqli_fetch_array($objQuery2,MYSQLI_ASSOC)) {
-                                if (isset($obResult2['member_id'])) {
-                                        $res_info = $obResult2["member_id"]." ".$obResult2["th_name"]." ".$obResult2["th_surname"];
-                                }
-                        }
+        //$objConnect = mysqli_connect("10.10.19.138","webbom","bombom") or die(mysql_error());
+        //mysqli_set_charset($objConnect, "utf8");
+        //mysqli_select_db($objConnect,"svgarena");
+        //$strSQL = "SELECT member_id FROM users WHERE mid = '$mid'";
+        //$objQuery = mysqli_query($objConnect,$strSQL) or die (mysql_error());
+        //$no = mysqli_num_rows($objQuery);
+        //if ($no > 0) {
+         //       while($obResult = mysqli_fetch_array($objQuery,MYSQLI_ASSOC)) {
+             //           $member_id = $obResult['member_id'];
+		//	$res_msg = 'IDของท่านได้ทำการลงทะเบียนใช้งานแล้ว';
+			//$strSQL2 = "SELECT member_id,firstname,lastname FROM users WHERE member_id = '$member_id'";
+                        //$objQuery2 = mysqli_query($objConnect,$strSQL2) or die (mysql_error());
+                        //$no2 = mysqli_num_rows($objQuery2);
+                        //while($obResult2 = mysqli_fetch_array($objQuery2,MYSQLI_ASSOC)) {
+                        //        if (isset($obResult2['member_id'])) {
+                        //                $res_info = $obResult2["member_id"]." ".$obResult2["th_name"]." ".$obResult2["th_surname"];
+                        //        }
+                        //}
                         $msg = "$res_info\n"."$res_msg"."$mid";
                         $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($accessToken);
                         $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
                         $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($msg);
                         $response = $bot->pushMessage($mid, $textMessageBuilder);
-                }
-        } else {
+                //}
+        //} else {
 		$msg = "ท่านยังไม่ได้ทำการลงทะเบียนการใช้งานโปรดทำการลงทะเบียนโดยการพิม REGISTER:<รหัสสมาชิกตัวพิมใหญ่>:<Line ID>";
 		 $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($accessToken);
                 $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
                 $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($msg);
                 $response = $bot->pushMessage($mid, $textMessageBuilder);
-        }
+        //}
 
-        mysqli_close($objConnect);
+       //mysqli_close($objConnect);
         return $msg;
 }
 
