@@ -65,7 +65,7 @@ if (!is_null($events['events'])) {
 				$msg = check_info($event['source']['userId']);	
 				exit();
 			//} else if (preg_match('/^REGISTER\:[A-Z0-9\-]{4,8}\:.+/', $text)) {
-				} else if (preg_match('/^REGISTER\:.+/', $text)) {
+			} else if (preg_match('/^REGISTER\:.+/', $text)) {
 				$info = 	explode(":",$text);
 				$verify_id = $info[1];
 				/*$objConnect = mysqli_connect("10.10.19.138","webbom","bombom") or die(mysql_error());
@@ -125,7 +125,7 @@ if (!is_null($events['events'])) {
 				$msg = 'การลงทะเบียนของท่านถูกยกเลิกแล้ว ขอบคุณที่ใช้บริการ';
 				sleep(1);
 				reply_msg($replyToken,$msg);
-			//}						
+			}						
 		}								
 	}		
 }
