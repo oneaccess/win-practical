@@ -1,10 +1,10 @@
 <?php
 
 require_once 'vendor/autoload.php';
-$setting = require('settings.php');
-$channelId = $setting['LINE_MESSAGE_CHANNEL_ID'];
-$channelSecret = $setting['LINE_MESSAGE_CHANNEL_SECRET'];
-$access_token = $setting['LINE_MESSAGE_ACCESS_TOKEN'];
+$setting = require('settings2.php');
+//$channelId = $setting['LINE_MESSAGE_CHANNEL_ID'];
+//$channelSecret = $setting['LINE_MESSAGE_CHANNEL_SECRET'];
+//$accessToken = $setting['LINE_MESSAGE_ACCESS_TOKEN'];
 
 //$proxy = 'http://fixie:Flxod6VSpeItsgI@velodrome.usefixie.com:80';
 //$proxyauth = 'qostttbb@gmail.com:noqnoq123';
@@ -47,7 +47,7 @@ if (!is_null($events['events'])) {
 				'messages' => [$messages],
 			];
 			$post = json_encode($data);
-			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
+			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $accessToken);
 
 			$ch = curl_init($url);
 			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
