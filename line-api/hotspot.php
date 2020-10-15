@@ -144,7 +144,7 @@ function  reply_msg($replyToken,$msg){
 	return $msg;
 }
 
-function  register_form($mid,$msg,$member_id,$line_id){
+/*function  register_form($mid,$msg,$member_id,$line_id){
 	$setting = require('/var/www/html/bom/line/settings.php');
         $channelId = $setting['channelId'];
         $channelSecret = $setting['channelSecret'];
@@ -179,7 +179,7 @@ function  register($mid,$line_id,$member_id){
 		
 		}
 	}*/
-}
+}*/
 
 function  check_info($mid){
 	$msg = 'ERROR';
@@ -221,14 +221,14 @@ function  check_info($mid){
 		$response = $bot->pushMessage($mid, $textMessageBuilder);
 	//}
 
-	mysqli_close($objConnect);
+	//mysqli_close($objConnect);
 	return $msg;
 }
 
-function write_file($txt){
+/*function write_file($txt){
 	$myfile = fopen("log.txt", "w") or die("Unable to open file!");
 	fwrite($myfile, $txt);
 	fclose($myfile);
-}
+}*/
 ?>
 
