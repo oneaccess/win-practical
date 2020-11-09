@@ -66,7 +66,7 @@ use LINE\LINEBot\MessageBuilder\TemplateBuilder\ImageCarouselColumnTemplateBuild
 $msg = 'hello';
 $channel_access_token = 'bjMobsS6ndui8SI7L3yfrJTH/J70rI8N/UdD2xX6vKOJQgbooymVfPIiDMOer8HbfO4rhEtXypseVhC9nY4HoRIUnZQ3j0CGVFwLc8Pq/a4lddesAE/PjK06ihIXeq+rw/gWf+5jD/Lf8ToVJPvNuwdB04t89/1O/w1cDnyilFU=';
 $channel_secret = '800277791d946cc4e2847fbe2b48578e';
-$to = 'Ub2502cfcfc6f5baa95ebac001536e222';
+$to = 'U8ce89a9c5318ef4fbbeef105ca1bf201';
 // เชื่อมต่อกับ LINE Messaging API
 $httpClient = new \vendor\LINE\LINEBot\HTTPClient\CurlHTTPClient($channel_access_token);
 $bot = new \vendor\LINE\LINEBot($httpClient, ['channelSecret' => $channel_secret]);
