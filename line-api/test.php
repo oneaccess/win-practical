@@ -48,11 +48,13 @@ use LINE\LINEBot\MessageBuilder\TemplateBuilder\ConfirmTemplateBuilder;
 use LINE\LINEBot\MessageBuilder\TemplateBuilder\ImageCarouselTemplateBuilder;
 use LINE\LINEBot\MessageBuilder\TemplateBuilder\ImageCarouselColumnTemplateBuilder;
  
-/*// เชื่อมต่อกับ LINE Messaging API
-$httpClient = new CurlHTTPClient(LINE_MESSAGE_ACCESS_TOKEN);
-$bot = new LINEBot($httpClient, array('channelSecret' => LINE_MESSAGE_CHANNEL_SECRET));
-//$httpClient = new CurlHTTPClient('vJkaEx7B0tYK6EtRxhYjBk70iDtSq5VYVT6+orl5AuqX82iChMQQUMyywaE2V5CNuY5dCRXrozUlssJQTWxxqpwj9lfXuF/IHWtttqi+HTQoiCj6tgc5Ijk+85l/Qdq2/z4llNHwMBh+11zXzJ1LAwdB04t89/1O/w1cDnyilFU=');
-//$bot = new LINEBot($httpClient, '800277791d946cc4e2847fbe2b48578e');
+$channel_access_token = 'bjMobsS6ndui8SI7L3yfrJTH/J70rI8N/UdD2xX6vKOJQgbooymVfPIiDMOer8HbfO4rhEtXypseVhC9nY4HoRIUnZQ3j0CGVFwLc8Pq/a4lddesAE/PjK06ihIXeq+rw/gWf+5jD/Lf8ToVJPvNuwdB04t89/1O/w1cDnyilFU=';
+$channel_secret = '800277791d946cc4e2847fbe2b48578e';
+
+// เชื่อมต่อกับ LINE Messaging API
+$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($channel_access_token);
+$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channel_secret]);
+
  
 // คำสั่งรอรับการส่งค่ามาของ LINE Messaging API
 $content = file_get_contents('php://input');
@@ -74,20 +76,5 @@ if ($response->isSucceeded()) {
 }
  
 // Failed
-echo $response->getHTTPStatus() . ' ' . $response->getRawBody();*/
-$channel_access_token = 'vJkaEx7B0tYK6EtRxhYjBk70iDtSq5VYVT6+orl5AuqX82iChMQQUMyywaE2V5CNuY5dCRXrozUlssJQTWxxqpwj9lfXuF/IHWtttqi+HTQoiCj6tgc5Ijk+85l/Qdq2/z4llNHwMBh+11zXzJ1LAwdB04t89/1O/w1cDnyilFU=';
-        $channel_secret = '800277791d946cc4e2847fbe2b48578e';
-        $to = 'Ub2502cfcfc6f5baa95ebac001536e222';
-        $msg = 'hello';
-
-        $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($channel_access_token);
-        $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channel_secret]);
-
-        $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($msg);
-        $response = $bot->pushMessage($to, $textMessageBuilder);
-
-        echo $response->getHTTPStatus() . ' ' . $response->getRawBody()."\n";
-
-        print_r($response);
-
+echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
 ?>
