@@ -49,15 +49,15 @@ use LINE\LINEBot\MessageBuilder\TemplateBuilder\ConfirmTemplateBuilder;
 use LINE\LINEBot\MessageBuilder\TemplateBuilder\ImageCarouselTemplateBuilder;
 use LINE\LINEBot\MessageBuilder\TemplateBuilder\ImageCarouselColumnTemplateBuilder;
 
-$setting = require('settings2.php');
-$channelId = $setting['LINE_MESSAGE_CHANNEL_ID'];
-$channelSecret = $setting['LINE_MESSAGE_CHANNEL_SECRET'];
-$accessToken = $setting['LINE_MESSAGE_ACCESS_TOKEN'];
+//$setting = require('settings2.php');
+//$channelId = $setting['LINE_MESSAGE_CHANNEL_ID'];
+//$channelSecret = $setting['LINE_MESSAGE_CHANNEL_SECRET'];
+//$accessToken = $setting['LINE_MESSAGE_ACCESS_TOKEN'];
 
 //$proxy = 'http://fixie:Flxod6VSpeItsgI@velodrome.usefixie.com:80';
 //$proxyauth = 'qostttbb@gmail.com:noqnoq123';
-//$access_token = 'vJkaEx7B0tYK6EtRxhYjBk70iDtSq5VYVT6+orl5AuqX82iChMQQUMyywaE2V5CNuY5dCRXrozUlssJQTWxxqpwj9lfXuF/IHWtttqi+HTQoiCj6tgc5Ijk+85l/Qdq2/z4llNHwMBh+11zXzJ1LAwdB04t89/1O/w1cDnyilFU=';
-$access_token = $accessToken;
+$access_token = 'vJkaEx7B0tYK6EtRxhYjBk70iDtSq5VYVT6+orl5AuqX82iChMQQUMyywaE2V5CNuY5dCRXrozUlssJQTWxxqpwj9lfXuF/IHWtttqi+HTQoiCj6tgc5Ijk+85l/Qdq2/z4llNHwMBh+11zXzJ1LAwdB04t89/1O/w1cDnyilFU=';
+//$access_token = $accessToken;
 // Get POST body content
 $content = file_get_contents('php://input');
 // Parse JSON
