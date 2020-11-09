@@ -68,8 +68,8 @@ $channel_access_token = 'bjMobsS6ndui8SI7L3yfrJTH/J70rI8N/UdD2xX6vKOJQgbooymVfPI
 $channel_secret = '800277791d946cc4e2847fbe2b48578e';
 $to = 'U8ce89a9c5318ef4fbbeef105ca1bf201';
 // เชื่อมต่อกับ LINE Messaging API
-$httpClient = new \vendor\LINE\LINEBot\HTTPClient\CurlHTTPClient($channel_access_token);
-$bot = new \vendor\LINE\LINEBot($httpClient, ['channelSecret' => $channel_secret]);
+$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($channel_access_token);
+$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channel_secret]);
 
  
 // คำสั่งรอรับการส่งค่ามาของ LINE Messaging API
