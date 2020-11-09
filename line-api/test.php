@@ -13,7 +13,7 @@ require_once 'settings.php';
 // กรณีมีการเชื่อมต่อกับฐานข้อมูล
 //require_once("dbconnect.php");
 
- require_once('src/LINEBot.php');
+ require_once('vendor/LINE/LINEBot.php');
         require_once('vendor/LINE/LINEBot/Constant/ActionType.php');
         require_once('vendor/LINE/LINEBot/Constant/EventSourceType.php');
         require_once('vendor/LINE/LINEBot/Constant/HTTPHeader.php');
