@@ -88,7 +88,7 @@ if(!is_null($events)){
 //$response = $bot->replyMessage($replyToken,$textMessageBuilder);
 
 $textMessageBuilder = new \vendor\LINE\LINEBot\MessageBuilder\TextMessageBuilder($msg);
-     $response = $bot->replyMessage($replyToken, $textMessageBuilder);
+     $response = $bot->replyMessage($to, $textMessageBuilder);
      echo $response->getHTTPStatus() . ' ' . $response->getRawBody()."\n";
 
 if ($response->isSucceeded()) {
