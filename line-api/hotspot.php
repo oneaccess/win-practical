@@ -55,8 +55,12 @@ use LINE\LINEBot\MessageBuilder\TemplateBuilder\ImageCarouselColumnTemplateBuild
 
 //$proxy = 'http://fixie:Flxod6VSpeItsgI@velodrome.usefixie.com:80';
 //$proxyauth = 'qostttbb@gmail.com:noqnoq123';
-$access_token = 'vJkaEx7B0tYK6EtRxhYjBk70iDtSq5VYVT6+orl5AuqX82iChMQQUMyywaE2V5CNuY5dCRXrozUlssJQTWxxqpwj9lfXuF/IHWtttqi+HTQoiCj6tgc5Ijk+85l/Qdq2/z4llNHwMBh+11zXzJ1LAwdB04t89/1O/w1cDnyilFU=';
+//$access_token = 'vJkaEx7B0tYK6EtRxhYjBk70iDtSq5VYVT6+orl5AuqX82iChMQQUMyywaE2V5CNuY5dCRXrozUlssJQTWxxqpwj9lfXuF/IHWtttqi+HTQoiCj6tgc5Ijk+85l/Qdq2/z4llNHwMBh+11zXzJ1LAwdB04t89/1O/w1cDnyilFU=';
 //$access_token = $accessToken;
+$channel_access_token = 'bjMobsS6ndui8SI7L3yfrJTH/J70rI8N/UdD2xX6vKOJQgbooymVfPIiDMOer8HbfO4rhEtXypseVhC9nY4HoRIUnZQ3j0CGVFwLc8Pq/a4lddesAE/PjK06ihIXeq+rw/gWf+5jD/Lf8ToVJPvNuwdB04t89/1O/w1cDnyilFU=';
+$channel_secret = '800277791d946cc4e2847fbe2b48578e';
+$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($channel_access_token);
+$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channel_secret]);
 // Get POST body content
 $content = file_get_contents('php://input');
 // Parse JSON
@@ -64,6 +68,7 @@ $events = json_decode($content, true);
 // Validate parsed JSON data
 if (!is_null($events['events'])) {
 	// Loop through each event
+	$replyToken = $events['events'][0]['replyToken'];
 	foreach ($events['events'] as $event) {
 		// Reply only when message sent is in 'text' format
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
@@ -87,7 +92,7 @@ if (!is_null($events['events'])) {
 				'text' => $msg.print_r($setting,true),	//$text
 			];
 
-			// Make a POST Request to Messaging API to reply to sender
+			/*// Make a POST Request to Messaging API to reply to sender
 			$url = 'https://api.line.me/v2/bot/message/reply';
 			$data = [
 				'replyToken' => $replyToken,
@@ -107,7 +112,11 @@ if (!is_null($events['events'])) {
 			$result = curl_exec($ch);
 			curl_close($ch);
 
-			echo $result . "\r\n";
+			echo $result . "\r\n";*/
+			$textMessageBuilder = new TextMessageBuilder(json_encode($events));
+ 
+//l ส่วนของคำสั่งตอบกลับข้อความ
+			$response = $bot->replyMessage($replyToken,$textMessageBuilder);
 		}
 	}
 }
