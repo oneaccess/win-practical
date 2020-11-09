@@ -50,9 +50,9 @@ use LINE\LINEBot\MessageBuilder\TemplateBuilder\ImageCarouselTemplateBuilder;
 use LINE\LINEBot\MessageBuilder\TemplateBuilder\ImageCarouselColumnTemplateBuilder;
 
 $setting = require('settings2.php');
-//$channelId = $setting['LINE_MESSAGE_CHANNEL_ID'];
-//$channelSecret = $setting['LINE_MESSAGE_CHANNEL_SECRET'];
-//$accessToken = $setting['LINE_MESSAGE_ACCESS_TOKEN'];
+$channelId = $setting['LINE_MESSAGE_CHANNEL_ID'];
+$channelSecret = $setting['LINE_MESSAGE_CHANNEL_SECRET'];
+$accessToken = $setting['LINE_MESSAGE_ACCESS_TOKEN'];
 
 //$proxy = 'http://fixie:Flxod6VSpeItsgI@velodrome.usefixie.com:80';
 //$proxyauth = 'qostttbb@gmail.com:noqnoq123';
