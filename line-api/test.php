@@ -52,8 +52,8 @@ $channel_access_token = 'bjMobsS6ndui8SI7L3yfrJTH/J70rI8N/UdD2xX6vKOJQgbooymVfPI
 $channel_secret = '800277791d946cc4e2847fbe2b48578e';
 
 // เชื่อมต่อกับ LINE Messaging API
-$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($channel_access_token);
-$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channel_secret]);
+$httpClient = new \vendor\LINE\LINEBot\HTTPClient\CurlHTTPClient($channel_access_token);
+$bot = new \vendor\LINE\LINEBot($httpClient, ['channelSecret' => $channel_secret]);
 
  
 // คำสั่งรอรับการส่งค่ามาของ LINE Messaging API
@@ -66,10 +66,15 @@ if(!is_null($events)){
     $replyToken = $events['events'][0]['replyToken'];
 }
 // ส่วนของคำสั่งจัดเตียมรูปแบบข้อความสำหรับส่ง
-$textMessageBuilder = new TextMessageBuilder(json_encode($events));
+//$textMessageBuilder = new TextMessageBuilder(json_encode($events));
  
 //l ส่วนของคำสั่งตอบกลับข้อความ
-$response = $bot->replyMessage($replyToken,$textMessageBuilder);
+//$response = $bot->replyMessage($replyToken,$textMessageBuilder);
+
+$textMessageBuilder = new \vendor\LINE\LINEBot\MessageBuilder\TextMessageBuilder(json_encode($events));
+     $response = $bot->pushMessage($replyToken, $textMessageBuilder);
+     echo $response->getHTTPStatus() . ' ' . $response->getRawBody()."\n";
+
 if ($response->isSucceeded()) {
     echo 'Succeeded!';
     return;
