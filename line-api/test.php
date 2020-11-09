@@ -12,7 +12,22 @@ require_once 'settings.php';
  
 // กรณีมีการเชื่อมต่อกับฐานข้อมูล
 //require_once("dbconnect.php");
- 
+
+ require_once('src/LINEBot.php');
+        require_once('vendor/LINE/LINEBot/Constant/ActionType.php');
+        require_once('vendor/LINE/LINEBot/Constant/EventSourceType.php');
+        require_once('vendor/LINE/LINEBot/Constant/HTTPHeader.php');
+        require_once('vendor/LINE/LINEBot/Constant/MessageType.php');
+        require_once('vendor/LINE/LINEBot/Constant/Meta.php');
+        require_once('vendor/LINE/LINEBot/Constant/TemplateType.php');
+        require_once('vendor/LINE/LINEBot/HTTPClient.php');
+        require_once('vendor/LINE/LINEBot/HTTPClient/Curl.php');
+        require_once('vendor/LINE/LINEBot/HTTPClient/CurlHTTPClient.php');
+        require_once('vendor/LINE/LINEBot/MessageBuilder.php');
+        require_once('vendor/LINE/LINEBot/MessageBuilder/TextMessageBuilder.php');
+        require_once('vendor/LINE/LINEBot/Response.php');
+
+
 ///////////// ส่วนของการเรียกใช้งาน class ผ่าน namespace
 use LINE\LINEBot;
 use LINE\LINEBot\HTTPClient;
