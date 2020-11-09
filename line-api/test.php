@@ -47,7 +47,8 @@ use LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder;
 use LINE\LINEBot\MessageBuilder\TemplateBuilder\ConfirmTemplateBuilder;
 use LINE\LINEBot\MessageBuilder\TemplateBuilder\ImageCarouselTemplateBuilder;
 use LINE\LINEBot\MessageBuilder\TemplateBuilder\ImageCarouselColumnTemplateBuilder;
- 
+
+$msg = 'hello';
 $channel_access_token = 'bjMobsS6ndui8SI7L3yfrJTH/J70rI8N/UdD2xX6vKOJQgbooymVfPIiDMOer8HbfO4rhEtXypseVhC9nY4HoRIUnZQ3j0CGVFwLc8Pq/a4lddesAE/PjK06ihIXeq+rw/gWf+5jD/Lf8ToVJPvNuwdB04t89/1O/w1cDnyilFU=';
 $channel_secret = '800277791d946cc4e2847fbe2b48578e';
 
@@ -71,7 +72,7 @@ if(!is_null($events)){
 //l ส่วนของคำสั่งตอบกลับข้อความ
 //$response = $bot->replyMessage($replyToken,$textMessageBuilder);
 
-$textMessageBuilder = new \vendor\LINE\LINEBot\MessageBuilder\TextMessageBuilder(json_encode($events));
+$textMessageBuilder = new \vendor\LINE\LINEBot\MessageBuilder\TextMessageBuilder($msg);
      $response = $bot->pushMessage($replyToken, $textMessageBuilder);
      echo $response->getHTTPStatus() . ' ' . $response->getRawBody()."\n";
 
