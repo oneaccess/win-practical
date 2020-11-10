@@ -59,8 +59,8 @@ $access_token = 'vJkaEx7B0tYK6EtRxhYjBk70iDtSq5VYVT6+orl5AuqX82iChMQQUMyywaE2V5C
 //$access_token = $accessToken;
 $channel_access_token = 'bjMobsS6ndui8SI7L3yfrJTH/J70rI8N/UdD2xX6vKOJQgbooymVfPIiDMOer8HbfO4rhEtXypseVhC9nY4HoRIUnZQ3j0CGVFwLc8Pq/a4lddesAE/PjK06ihIXeq+rw/gWf+5jD/Lf8ToVJPvNuwdB04t89/1O/w1cDnyilFU=';
 $channel_secret = '800277791d946cc4e2847fbe2b48578e';
-$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($channel_access_token);
-$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channel_secret]);
+//$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($channel_access_token);
+//$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channel_secret]);
 // Get POST body content
 $content = file_get_contents('php://input');
 // Parse JSON
