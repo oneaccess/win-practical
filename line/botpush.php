@@ -7,7 +7,7 @@ use LINE\LINEBot\HTTPClient\GuzzleHTTPClient;
 use LINE\LINEBot\Message\MultipleMessages;
 use LINE\LINEBot\Message\RichMessage\Markup;
 error_reporting(-1);
-$setting = require('bot_settings.php');
+$setting = require('settings.php');
 $channelId = $setting['channelId'];
 $channelSecret = $setting['channelSecret'];
 $channelMid = $setting['channelMid'];
