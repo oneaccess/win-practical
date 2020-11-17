@@ -23,7 +23,7 @@ if(!is_null($events)){
     $typeMessage = $events['events'][0]['message']['type'];
     $userMessage = $events['events'][0]['message']['text'];
     $userMessage = strtolower($userMessage);
-    $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('hello world');
+    $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($userMessage);
     //$response = $bot->pushMessage($pushID, $textMessageBuilder);
     $response = $bot->replyMessage($replyToken, $textMessageBuilder);
 }
