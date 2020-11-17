@@ -18,13 +18,16 @@
         $to = 'U8ce89a9c5318ef4fbbeef105ca1bf201';
         $msg = 'hello';
 
-        $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($channel_access_token);
+         $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($channel_access_token);
         $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channel_secret]);
+        $response = $bot->getProfile($userId);
+        if ($response->isSucceeded()) {
+                $profile = $response->getJSONDecodedBody()."\n";
+                echo $profile['displayName']."\n";
+                echo $profile['pictureUrl']."\n";
+                echo $profile['statusMessage']."\n";
+        }
 
-        $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($msg);
-        $response = $bot->pushMessage($to, $textMessageBuilder);
-
-        echo $response->getHTTPStatus() . ' ' . $response->getRawBody()."\n";
 
         print_r($response);
 
