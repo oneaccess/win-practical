@@ -12,11 +12,21 @@ $pushID = 'Uf34420370c875a3540bd79f148c915c2';
 
 $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
 $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
-
-$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('hello world');
-//$response = $bot->pushMessage($pushID, $textMessageBuilder);
-$response = $bot->replyMessage($replyToken, $textMessageBuilder);
-
+// คำสั่งรอรับการส่งค่ามาของ LINE Messaging API
+$content = file_get_contents('php://input');
+ 
+// แปลงข้อความรูปแบบ JSON  ให้อยู่ในโครงสร้างตัวแปร array
+$events = json_decode($content, true);
+if(!is_null($events)){
+    // ถ้ามีค่า สร้างตัวแปรเก็บ replyToken ไว้ใช้งาน
+    $replyToken = $events['events'][0]['replyToken'];
+    $typeMessage = $events['events'][0]['message']['type'];
+    $userMessage = $events['events'][0]['message']['text'];
+    $userMessage = strtolower($userMessage);
+    $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('hello world');
+    //$response = $bot->pushMessage($pushID, $textMessageBuilder);
+    $response = $bot->replyMessage($replyToken, $textMessageBuilder);
+}
 echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
 
 
