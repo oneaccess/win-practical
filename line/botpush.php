@@ -14,13 +14,9 @@ $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
 $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 
 $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('hello world');
-$response = $bot->pushMessage($pushID, $textMessageBuilder);
+//$response = $bot->pushMessage($pushID, $textMessageBuilder);
+$response = $bot->replyMessage($replyToken, $textMessageBuilder);
 
 echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
-
-
-
-
-
 
 
