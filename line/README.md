@@ -1,1 +1,0 @@
-# LINE-BOT-PHP-Starter
