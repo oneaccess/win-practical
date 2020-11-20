@@ -7,6 +7,7 @@ error_reporting(E_ALL);
  
 require_once ('vendor/autoload.php');
 require_once ('bot_settings.php');
+require_once ('vendor/linecorp/line-bot-sdk/src/LINEBot/MessageBuilder/TextMessageBuilder.php');
  
 // กรณีมีการเชื่อมต่อกับฐานข้อมูล
 //require_once("dbconnect.php");
