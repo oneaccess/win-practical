@@ -1,30 +1,54 @@
 <?php
-
-
-
-require "vendor/autoload.php";
+defined('BASEPATH') OR exit('No direct script access allowed');
+// กรณีต้องการตรวจสอบการแจ้ง error ให้เปิด 3 บรรทัดล่างนี้ให้ทำงาน กรณีไม่ ให้ comment ปิดไป
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+ 
+require_once ('vendor/autoload.php');
 require_once ('bot_settings.php');
-
-//$access_token = 'vJkaEx7B0tYK6EtRxhYjBk70iDtSq5VYVT6+orl5AuqX82iChMQQUMyywaE2V5CNuY5dCRXrozUlssJQTWxxqpwj9lfXuF/IHWtttqi+HTQoiCj6tgc5Ijk+85l/Qdq2/z4llNHwMBh+11zXzJ1LAwdB04t89/1O/w1cDnyilFU=';
-
-//$channelSecret = '800277791d946cc4e2847fbe2b48578e';
-
-//$pushID = 'U8ce89a9c5318ef4fbbeef105ca1bf201';
-
-//$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
-//$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
-
-$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient(LINE_MESSAGE_ACCESS_TOKEN);
-$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => LINE_MESSAGE_CHANNEL_SECRET]);
-
-$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('hello world');
-$response = $bot->pushMessage($pushID, $textMessageBuilder);
-
-echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
-
-
-
-
-
-
-
+ 
+// กรณีมีการเชื่อมต่อกับฐานข้อมูล
+//require_once("dbconnect.php");
+ 
+class Bot extends CI_Controller {
+    
+    function __construct() {
+        parent::__construct();
+    }
+    
+    function index() {
+        $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient(LINE_MESSAGE_ACCESS_TOKEN);
+        $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => LINE_MESSAGE_CHANNEL_SECRET]);
+ 
+        //recieve data from LINE Messaging API
+        $content = file_get_contents('php://input');
+ 
+        //decode json to array
+        $events = json_decode($content, true);
+        
+        //get reply token and message if events is not null
+        if (!is_null ($events)) {
+            $replyToken = $events['events'][0]['replyToken'];
+            $message = $events['events'][0]['message']['text'];
+        }
+        
+        //condition to reply message
+        if (preg_match("/ชื่ออะไร/", $message)) {
+            $reply = "ชื่อปูเป้จ้าา";
+        }
+        else {
+            $reply = "สวัสดีจ้า";
+        }
+        $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($reply);
+$response = $bot->replyMessage($replyToken,$textMessageBuilder);
+        if ($response->isSucceeded()) {
+            echo 'Succeeded!';
+            return;
+        }
+        
+        // Failed
+        echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
+    }
+}
+?>
